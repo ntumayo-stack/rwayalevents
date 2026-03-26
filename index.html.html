@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rwayal Events — La Conciergerie Événementielle</title>
+<!-- Version 26/03/2026 11:57 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -147,13 +148,13 @@
   }
   .btn-primary:hover { background: var(--or-pale); transform: translateY(-1px); }
   .btn-ghost {
-    color: rgba(253,250,245,.7);
-    font-size: .78rem;
-    font-weight: 400;
+    color: rgba(253,250,245,.95);
+    font-size: .82rem;
+    font-weight: 500;
     letter-spacing: .08em;
     text-decoration: none;
-    border-bottom: 1px solid rgba(200,169,110,.4);
-    padding-bottom: 2px;
+    border-bottom: 1px solid rgba(200,169,110,.7);
+    padding-bottom: 3px;
     transition: color .2s, border-color .2s;
   }
   .btn-ghost:hover { color: var(--or-pale); border-color: var(--or-pale); }
@@ -317,7 +318,6 @@
     border-right: 1px solid rgba(200,169,110,.2);
     border-bottom: 1px solid rgba(200,169,110,.2);
     position: relative;
-    overflow: hidden;
     transition: background .3s;
     cursor: default;
   }
@@ -750,13 +750,13 @@
   }
 
   .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .7s, transform .7s;
-  }
-  .reveal.visible {
     opacity: 1;
     transform: none;
+    transition: opacity .7s, transform .7s;
+  }
+  .reveal.anim {
+    opacity: 0;
+    transform: translateY(24px);
   }
 
   /* ─── RESPONSIVE ─────────────────────────────── */
@@ -788,6 +788,84 @@
     footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
     .manifeste { padding: 4rem 1.5rem; }
   }
+
+  /* ─── SERVICE LIST ── */
+  .service-list {
+    list-style: none;
+    margin: 1rem 0 1.2rem;
+    display: flex; flex-direction: column; gap: .4rem;
+  }
+  .service-list li {
+    font-size: .78rem; font-weight: 300;
+    color: var(--texte-doux); line-height: 1.6;
+    padding-left: 1rem; position: relative;
+  }
+  .service-list li::before {
+    content: '—'; position: absolute; left: 0;
+    color: var(--or); font-size: .7rem;
+  }
+  .service-card:hover .service-list li { color: var(--texte); }
+
+  /* ─── EVENT CARD ENRICHIE ── */
+  .event-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: .7rem;
+  }
+  .event-kpi {
+    font-size: .65rem; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: rgba(253,250,245,.4);
+    background: rgba(200,169,110,.08);
+    border: 1px solid rgba(200,169,110,.15);
+    border-radius: 100px; padding: .2rem .7rem;
+  }
+  .event-tags {
+    display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem;
+  }
+  .event-tag-pill {
+    font-size: .62rem; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: rgba(200,169,110,.7);
+    background: rgba(200,169,110,.06);
+    border: 1px solid rgba(200,169,110,.15);
+    border-radius: 100px; padding: .18rem .65rem;
+  }
+
+  /* ─── DIFFÉRENCIATEURS ── */
+  .diff-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .diff-card {
+    background: var(--blanc);
+    border: 1px solid rgba(200,169,110,.2);
+    border-radius: 12px;
+    padding: 1.8rem;
+    transition: background .3s, border-color .3s;
+  }
+  .diff-card:hover {
+    background: var(--creme);
+    border-color: rgba(200,169,110,.4);
+  }
+  .diff-icon {
+    font-size: 1.8rem; margin-bottom: 1rem;
+    line-height: 1; display: block;
+  }
+  .diff-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 600;
+    color: var(--texte); margin-bottom: .7rem;
+    line-height: 1.3;
+  }
+  .diff-desc {
+    font-size: .83rem; font-weight: 300;
+    color: var(--texte-doux); line-height: 1.8;
+  }
+
+  @media (max-width: 900px) {
+    .diff-grid { grid-template-columns: 1fr; }
+  }
+
 </style>
 </head>
 <body>
@@ -882,10 +960,16 @@
       <div class="service-icon"></div>
       <h3 class="service-name">Mariages & cérémonies</h3>
       <p class="service-desc">
-        Mariage civil, traditionnel, mixte franco-africain ou international — 
-        nous construisons votre journée de A à Z. Coordination complète, 
-        prestataires sélectionnés, mise en scène personnalisée.
+        Mariage civil, traditionnel, mixte franco-africain ou international —
+        nous construisons votre journée de A à Z.
       </p>
+      <ul class="service-list">
+        <li>Coordination complète de la journée</li>
+        <li>Sélection et gestion des prestataires</li>
+        <li>Scénographie et décoration personnalisée</li>
+        <li>Gestion des imprévus le jour J</li>
+        <li>Expertise mariages mixtes & interculturels</li>
+      </ul>
       <span class="service-tag">Clé en main</span>
     </div>
 
@@ -894,10 +978,16 @@
       <div class="service-icon"></div>
       <h3 class="service-name">Événements d'entreprise</h3>
       <p class="service-desc">
-        Séminaires, conférences, soirées de gala, team buildings et lancements 
-        de produits. Une organisation professionnelle qui reflète l'image 
-        de votre marque.
+        Séminaires, conférences, soirées de gala, team buildings et lancements
+        de produits. Une organisation qui reflète l'image de votre marque.
       </p>
+      <ul class="service-list">
+        <li>Choix et réservation du lieu</li>
+        <li>Programme et animations sur mesure</li>
+        <li>Coordination des intervenants</li>
+        <li>Logistique technique (son, lumière, AV)</li>
+        <li>Personnel d'accueil multilingue</li>
+      </ul>
       <span class="service-tag">B2B & institutions</span>
     </div>
 
@@ -906,10 +996,16 @@
       <div class="service-icon"></div>
       <h3 class="service-name">Événements culturels diaspora</h3>
       <p class="service-desc">
-        Concerts, galas communautaires, journées culturelles, soirées 
-        de la diaspora africaine en France. Notre territoire naturel, 
-        notre réseau, notre passion.
+        Galas communautaires, concerts, journées culturelles, soirées de la
+        diaspora africaine. Notre territoire naturel depuis 2014.
       </p>
+      <ul class="service-list">
+        <li>Programmation artistique africaine</li>
+        <li>Réseau d'artistes et de griots</li>
+        <li>Espace gastronomique africain</li>
+        <li>Communication dans les communautés</li>
+        <li>Gestion billetterie et accueil</li>
+      </ul>
       <span class="service-tag">Spécialité diaspora</span>
     </div>
 
@@ -918,10 +1014,16 @@
       <div class="service-icon"></div>
       <h3 class="service-name">Hôtes & hôtesses événementiels</h3>
       <p class="service-desc">
-        Personnel d'accueil bilingue et multilingue (français, anglais, 
-        kinyarwanda, swahili) pour salons, cocktails VIP, congrès 
-        et événements internationaux.
+        Personnel d'accueil professionnel, bilingue et multilingue, pour
+        salons, cocktails VIP, congrès et événements internationaux.
       </p>
+      <ul class="service-list">
+        <li>Français, anglais, kinyarwanda, swahili</li>
+        <li>Tenue adaptée au code vestimentaire</li>
+        <li>Briefing complet avant l'événement</li>
+        <li>Accueil, orientation, enregistrement</li>
+        <li>Disponibles partout en France</li>
+      </ul>
       <span class="service-tag">Multilingue</span>
     </div>
 
@@ -930,115 +1032,231 @@
       <div class="service-icon"></div>
       <h3 class="service-name">Décoration & scénographie</h3>
       <p class="service-desc">
-        Conception de décors sur mesure, location de mobilier, 
-        installation et démontage. Des espaces transformés en 
-        expériences visuelles mémorables.
+        Conception de décors sur mesure, location de mobilier haut de gamme,
+        installation et démontage. Vos espaces transformés.
       </p>
+      <ul class="service-list">
+        <li>Direction artistique de l'espace</li>
+        <li>Décoration florale et tissus wax</li>
+        <li>Mobilier et éclairage d'ambiance</li>
+        <li>Installation le jour J, démontage inclus</li>
+        <li>Styles : contemporain, africain, fusion</li>
+      </ul>
       <span class="service-tag">Sur mesure</span>
     </div>
 
     <div class="service-card reveal" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--creme);">
       <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;font-style:italic;color:var(--texte-doux);line-height:1.7;margin-bottom:1.5rem;">
-        Un projet qui ne rentre pas dans une case ?<br>Parlons-en.
+        Un projet hors du commun ?<br>Nous aimons les défis.
       </p>
-      <a href="#contact" class="btn-primary">Demander un devis</a>
+      <p style="font-size:.8rem;color:var(--texte-doux);margin-bottom:1.5rem;line-height:1.6;">
+        Représentation d'artistes à l'étranger, coordination d'événements<br>
+        en Afrique depuis la France, projets multinationaux…
+      </p>
+      <a href="#contact" class="btn-primary">Parler de votre projet</a>
     </div>
 
   </div>
 </section>
-
 <!-- ─── EVENEMENTS PASSES ─── -->
 <section class="evenements" id="evenements">
   <div class="section-header reveal">
     <div>
-      <span class="section-label">Réalisations</span>
-      <h2 class="section-title">Événements <em>marquants</em></h2>
+      <span class="section-label">Depuis 2014</span>
+      <h2 class="section-title">Nos <em>réalisations</em></h2>
     </div>
-    <span class="section-count">Sélection</span>
+    <span class="section-count">+50 événements · 2014 – 2025</span>
   </div>
+
   <div class="events-grid">
 
     <div class="event-card reveal">
-      <span class="event-year">2016</span>
+      <div class="event-card-top">
+        <span class="event-year">2016</span>
+        <span class="event-kpi">500+ participants</span>
+      </div>
       <h3 class="event-name">Ak'iwacu Day</h3>
-      <p class="event-type">Événement culturel diaspora rwandaise · Paris</p>
-      <p class="event-detail">Grande célébration de la communauté rwandaise de France organisée par Rwayal Events. Animations, artistes invités, espace gastronomique.</p>
+      <p class="event-type">Gala culturel · Diaspora rwandaise · Paris</p>
+      <p class="event-detail">Grande célébration annuelle de la communauté rwandaise de France organisée par Rwayal Events. Scénographie complète, artistes invités, espace gastronomique rwandais, animations culturelles.</p>
+      <div class="event-tags">
+        <span class="event-tag-pill">Culturel</span>
+        <span class="event-tag-pill">Diaspora</span>
+        <span class="event-tag-pill">Gala</span>
+      </div>
     </div>
 
     <div class="event-card reveal">
-      <span class="event-year">2015</span>
+      <div class="event-card-top">
+        <span class="event-year">2015</span>
+        <span class="event-kpi">300+ participants</span>
+      </div>
       <h3 class="event-name">Diasport</h3>
       <p class="event-type">Tournoi sportif & célébration · Île-de-France</p>
-      <p class="event-detail">Événement sportif et communautaire rassemblant des centaines de participants issus de la diaspora africaine en France.</p>
+      <p class="event-detail">Événement sportif et communautaire réunissant la diaspora africaine autour d'un tournoi multi-disciplines. Organisation complète : logistique terrain, restauration, remise des prix, soirée de clôture.</p>
+      <div class="event-tags">
+        <span class="event-tag-pill">Sportif</span>
+        <span class="event-tag-pill">Communautaire</span>
+      </div>
     </div>
 
     <div class="event-card reveal">
-      <span class="event-year">2016</span>
+      <div class="event-card-top">
+        <span class="event-year">2016</span>
+        <span class="event-kpi">Salle comble</span>
+      </div>
       <h3 class="event-name">Rire en France</h3>
       <p class="event-type">Soirée stand-up & humour · Paris</p>
-      <p class="event-detail">Soirée d'humour réunissant les meilleurs comiques de la scène francophone africaine. Salle comble, ambiance mémorable.</p>
+      <p class="event-detail">Soirée d'humour réunissant les meilleurs comiques de la scène francophone africaine. Billetterie, production scénique, communication, accueil VIP. Une soirée mémorable dont le public parle encore.</p>
+      <div class="event-tags">
+        <span class="event-tag-pill">Spectacle</span>
+        <span class="event-tag-pill">Humour</span>
+        <span class="event-tag-pill">VIP</span>
+      </div>
     </div>
 
     <div class="event-card reveal">
-      <span class="event-year">2014</span>
+      <div class="event-card-top">
+        <span class="event-year">2014</span>
+        <span class="event-kpi">Premier grand événement</span>
+      </div>
       <h3 class="event-name">Igisope</h3>
       <p class="event-type">Concert & spectacle vivant · Île-de-France</p>
-      <p class="event-detail">Soirée musicale mêlant artistes de la diaspora rwandaise et scène musicale française. L'un des premiers grands événements de Rwayal Events.</p>
+      <p class="event-detail">Premier grand concert organisé par Rwayal Events. Artistes de la diaspora rwandaise sur scène, production technique complète, accueil de plusieurs centaines de spectateurs. L'événement fondateur.</p>
+      <div class="event-tags">
+        <span class="event-tag-pill">Concert</span>
+        <span class="event-tag-pill">Fondateur</span>
+      </div>
     </div>
 
     <div class="event-card reveal">
-      <span class="event-year">Depuis 2014</span>
-      <h3 class="event-name">10 ans d'expérience</h3>
+      <div class="event-card-top">
+        <span class="event-year">Depuis 2014</span>
+        <span class="event-kpi">10 ans d'expertise</span>
+      </div>
+      <h3 class="event-name">Mariages & cérémonies privées</h3>
       <p class="event-type">France · Afrique · International</p>
-      <p class="event-detail">Depuis notre premier événement en 2014, Rwayal Events a orchestré plus de 50 projets — mariages, galas, événements culturels et corporate — avec la même exigence.</p>
+      <p class="event-detail">Plus de 30 mariages coordonnés depuis 2014 — civils, traditionnels, mixtes franco-africains. De Paris à Kigali, de Lyon à Bruxelles. Chaque mariage unique, chaque couple au cœur de notre attention.</p>
+      <div class="event-tags">
+        <span class="event-tag-pill">Mariages</span>
+        <span class="event-tag-pill">Interculturel</span>
+        <span class="event-tag-pill">International</span>
+      </div>
+    </div>
+
+    <div class="event-card reveal">
+      <div class="event-card-top">
+        <span class="event-year">25 mars 2025</span>
+        <span class="event-kpi">Musée du Louvre · Paris</span>
+      </div>
+      <h3 class="event-name">Randonnée au Louvre<br><em style="font-size:1.1rem;color:var(--or-pale);">avec Gaël Faye & Intore</em></h3>
+      <p class="event-type">Soirée culturelle · 19h30 – 23h00 · Paris</p>
+      <p class="event-detail">Soirée d'exception au cœur du Louvre associant l'univers poétique et musical de Gaël Faye aux danseurs Intore du Rwanda. Une rencontre entre patrimoine universel et culture rwandaise au pied des œuvres majeures du musée.</p>
+      <div class="event-tags">
+        <span class="event-tag-pill">Culture</span>
+        <span class="event-tag-pill">Gaël Faye</span>
+        <span class="event-tag-pill">Intore</span>
+        <span class="event-tag-pill">Louvre</span>
+      </div>
+    </div>
+
+    <div class="event-card reveal">
+      <div class="event-card-top">
+        <span class="event-year">17 mai 2025</span>
+        <span class="event-kpi">Pyramide du Louvre · Paris</span>
+      </div>
+      <h3 class="event-name">Concert devant la Pyramide<br><em style="font-size:1.1rem;color:var(--or-pale);">Gaël Faye & tambours royaux</em></h3>
+      <p class="event-type">Concert exceptionnel · 18h00 – 23h00 · Paris</p>
+      <p class="event-detail">Gaël Faye invite les danseurs Intore du Rwanda et les tambours royaux du Burundi pour un concert unique devant la Pyramide du Louvre. Un spectacle vivant alliant musique, danse traditionnelle et poésie, face à l'un des monuments les plus emblématiques de Paris.</p>
+      <div class="event-tags">
+        <span class="event-tag-pill">Concert</span>
+        <span class="event-tag-pill">Gaël Faye</span>
+        <span class="event-tag-pill">Tambours royaux</span>
+        <span class="event-tag-pill">Intore</span>
+        <span class="event-tag-pill">Pyramide</span>
+      </div>
     </div>
 
     <div class="event-card reveal" style="display:flex;flex-direction:column;justify-content:center;border-style:dashed;">
       <p style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;font-style:italic;color:rgba(253,250,245,.5);line-height:1.6;margin-bottom:1.5rem;">
-        Votre événement pourrait être ici.
+        Votre événement<br>pourrait être ici.
       </p>
-      <a href="#contact" style="font-size:.72rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--or);text-decoration:none;border-bottom:1px solid rgba(200,169,110,.4);padding-bottom:2px;width:fit-content;">
+      <p style="font-size:.78rem;color:rgba(253,250,245,.35);margin-bottom:1.5rem;line-height:1.7;">
+        Mariages, galas, concerts, séminaires,<br>
+        événements diaspora — nous construisons<br>
+        votre projet de A à Z.
+      </p>
+      <a href="#contact" style="font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--or);text-decoration:none;border-bottom:1px solid rgba(200,169,110,.4);padding-bottom:2px;width:fit-content;">
         Nous contacter →
       </a>
     </div>
 
   </div>
 </section>
-
 <!-- ─── PROCESSUS ─── -->
 <section class="processus" id="processus">
-  <div class="processus-inner">
+  <div class="processus-inner" style="max-width:1000px;">
     <div class="section-header reveal" style="border-color:rgba(200,169,110,.2);">
       <div>
-        <span class="section-label">Notre méthode</span>
-        <h2 class="section-title">De l'idée à l'<em>expérience</em></h2>
+        <span class="section-label">Notre approche</span>
+        <h2 class="section-title">Pourquoi choisir <em>Rwayal</em></h2>
       </div>
     </div>
-    <div class="processus-steps">
-      <div class="step reveal">
-        <div class="step-num">01</div>
-        <h3 class="step-title">Écoute & brief</h3>
-        <p class="step-desc">Un échange approfondi pour comprendre vos attentes, votre vision et vos contraintes. Pas de formulaire générique — une vraie conversation.</p>
+
+    <div class="diff-grid reveal">
+      <div class="diff-card">
+        <div class="diff-icon">🌍</div>
+        <h3 class="diff-title">Expertise interculturelle unique</h3>
+        <p class="diff-desc">Nous sommes l'une des rares agences en France à maîtriser l'organisation d'événements à la croisée des cultures africaines et européennes. Mariages mixtes, cérémonies traditionnelles, galas diaspora — nous connaissons les codes, les protocoles, les attentes des deux côtés.</p>
       </div>
-      <div class="step reveal">
-        <div class="step-num">02</div>
-        <h3 class="step-title">Conception sur mesure</h3>
-        <p class="step-desc">Nous construisons un concept unique pour votre événement : scénographie, programme, prestataires, budget détaillé.</p>
+      <div class="diff-card">
+        <div class="diff-icon">🤝</div>
+        <h3 class="diff-title">Un réseau de prestataires triés sur le volet</h3>
+        <p class="diff-desc">10 ans de terrain nous ont permis de constituer un réseau exceptionnel : DJs afrobeats, traiteurs de cuisine africaine, griots, photographes spécialisés, décorateurs. Des professionnels que nous connaissons personnellement et en qui nous avons confiance.</p>
       </div>
-      <div class="step reveal">
-        <div class="step-num">03</div>
-        <h3 class="step-title">Coordination totale</h3>
-        <p class="step-desc">Nous prenons en charge l'ensemble de la logistique : prestataires, planning, équipes sur le terrain. Vous profitez, nous gérons.</p>
+      <div class="diff-card">
+        <div class="diff-icon">📋</div>
+        <h3 class="diff-title">Une présence physique le jour J</h3>
+        <p class="diff-desc">Contrairement à certaines agences qui disparaissent après la phase de planning, notre équipe est présente physiquement le jour de votre événement. Nous gérons les imprévus pour que vous n'ayez à vous occuper de rien.</p>
       </div>
-      <div class="step reveal">
-        <div class="step-num">04</div>
-        <h3 class="step-title">Le jour J & après</h3>
-        <p class="step-desc">Présence physique de notre équipe de A à Z. Et un débriefing post-événement pour capitaliser sur chaque expérience.</p>
+      <div class="diff-card">
+        <div class="diff-icon">💎</div>
+        <h3 class="diff-title">Sur mesure, pas de formules standardisées</h3>
+        <p class="diff-desc">Chaque événement est conçu de zéro selon vos envies, votre budget et votre identité. Pas de catalogue, pas de package imposé. Nous partons d'une page blanche et construisons quelque chose qui vous ressemble vraiment.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:4rem;border-top:1px solid rgba(200,169,110,.2);padding-top:3rem;">
+      <div class="section-header reveal" style="border:none;padding:0;margin-bottom:2.5rem;">
+        <div>
+          <span class="section-label">Notre méthode</span>
+          <h2 class="section-title" style="font-size:clamp(1.4rem,2.5vw,2rem);">De l'idée à l'<em>expérience</em></h2>
+        </div>
+      </div>
+      <div class="processus-steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <h3 class="step-title">Écoute & brief</h3>
+          <p class="step-desc">Un échange approfondi pour comprendre vos attentes, votre vision, vos contraintes culturelles et votre budget. Pas de formulaire — une vraie conversation humaine.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">02</div>
+          <h3 class="step-title">Conception sur mesure</h3>
+          <p class="step-desc">Nous construisons un concept unique : scénographie, programme, sélection des prestataires, budget détaillé, planning. Vous validez chaque étape.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">03</div>
+          <h3 class="step-title">Coordination totale</h3>
+          <p class="step-desc">Nous prenons en charge l'ensemble de la logistique — prestataires, planning, équipes sur le terrain. Vous profitez. Nous gérons.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">04</div>
+          <h3 class="step-title">Jour J & après</h3>
+          <p class="step-desc">Présence physique de notre équipe de A à Z. Et un débriefing post-événement pour capitaliser sur l'expérience et préparer le prochain.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
 <!-- ─── TEMOIGNAGES ─── -->
 <section class="temoignages">
   <div class="section-header reveal">
@@ -1192,7 +1410,7 @@
       </div>
     </form>
     <div class="contact-direct">
-      <a href="/cdn-cgi/l/email-protection#7d0f0a1c041c11180b1813090e3d1a101c1411531e1210"><span class="__cf_email__" data-cfemail="afddd8ced6cec3cad9cac1dbdcefc8c2cec6c381ccc0c2">[email&#160;protected]</span></a>
+      <a href="/cdn-cgi/l/email-protection#483a3f293129242d3e2d263c3b082f25292124662b2725"><span class="__cf_email__" data-cfemail="a7d5d0c6dec6cbc2d1c2c9d3d4e7c0cac6cecb89c4c8ca">[email&#160;protected]</span></a>
       <a href="tel:+33611171234">+33 6 11 17 12 34</a>
       <a href="https://instagram.com/rwayal_paris" target="_blank">@rwayal_paris</a>
     </div>
@@ -1211,7 +1429,7 @@
   <span class="footer-copy">© 2025 Rwayal Events · Paris, France</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const nav = document.getElementById('mainNav');
   const scrollLine = document.getElementById('scrollLine');
 
@@ -1222,4 +1440,15 @@
   });
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  function handleSubmit(e) {
+    e.p
